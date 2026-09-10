@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>og-cover — Sharon Rodríguez</title>
+<style>
+  /* Tokens idénticos a src/styles/main.css */
+  :root {
+    --ivory: #fbf4ea;
+    --blush-100: #f7e3e9;
+    --blush-200: #f0cfd9;
+    --blush-300: #e5b3c3;
+    --blush-400: #d690a8;
+    --gold: #c9a96a;
+    --gold-soft: #e8dcc0;
+    --gold-foil: #b8935a;
+    --ink: #4a3540;
+    --ink-soft: #6b5260;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+
+  body {
+    font-family: "Cormorant Garamond", "Georgia", serif;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% 110%, var(--blush-100) 0%, transparent 60%),
+      radial-gradient(ellipse 700px 400px at 85% -10%, var(--blush-100) 0%, transparent 55%),
+      var(--ivory);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Marco doble dorado */
+  .frame {
+    position: absolute;
+    inset: 28px;
+    border: 1.5px solid var(--gold-foil);
+    border-radius: 18px;
+  }
+  .frame::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid var(--gold-soft);
+    border-radius: 12px;
+  }
+
+  /* Lazos decorativos en las esquinas */
+  .bow { position: absolute; font-size: 64px; line-height: 1; }
+  .bow-tl { top: 52px; left: 56px; transform: rotate(-18deg); }
+  .bow-br { bottom: 52px; right: 56px; transform: rotate(162deg); }
+
+  .content {
+    text-align: center;
+    padding: 0 120px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .script {
+    font-family: "Dancing Script", "Segoe Script", cursive;
+    color: var(--blush-400);
+    font-size: 44px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .name {
+    font-size: 108px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 2px;
+    line-height: 1.05;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 26px 0;
+  }
+  .divider .line {
+    width: 150px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-foil), transparent);
+  }
+  .divider .bow-icon { font-size: 34px; }
+
+  .subtitle {
+    font-size: 40px;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  .date {
+    margin-top: 18px;
+    font-size: 30px;
+    color: var(--gold-foil);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="frame"></div>
+  <span class="bow bow-tl">🎀</span>
+  <span class="bow bow-br">🎀</span>
+
+  <div class="content">
+    <p class="script">Con mucho amor te invitamos a celebrar</p>
+    <h1 class="name">Sharon Rodríguez</h1>
+
+    <div class="divider">
+      <span class="line"></span>
+      <span class="bow-icon">🎀</span>
+      <span class="line"></span>
+    </div>
+
+    <p class="subtitle">Mi primer añito</p>
+    <p class="date">Domingo 4 de octubre · 11:00 am</p>
+  </div>
+</body>
+</html>
