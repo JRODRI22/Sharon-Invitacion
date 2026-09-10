@@ -237,25 +237,6 @@ export function RSVP() {
             </div>
           )}
 
-          {/* Mensaje */}
-          <div>
-            <label
-              htmlFor="rsvp-message"
-              className="mb-1.5 block font-body text-sm font-semibold text-ink"
-            >
-              Mensaje para Sharon{" "}
-              <span className="font-normal text-ink-soft">(opcional)</span>
-            </label>
-            <textarea
-              id="rsvp-message"
-              value={form.message}
-              onChange={(e) => set("message", e.target.value)}
-              placeholder="Unas palabras bonitas para la cumpleañera…"
-              rows={3}
-              className="input-line w-full resize-none px-1 py-2.5 font-body text-ink"
-            />
-          </div>
-
           <button
             type="submit"
             disabled={status === "sending" || status === "sent"}
