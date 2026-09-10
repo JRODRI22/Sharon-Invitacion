@@ -1,0 +1,5 @@
+* text=auto eol=lf encoding=utf-8
+*.{ts,tsx} text eol=lf encoding=utf-8
+*.{json,yml,yaml} text eol=lf encoding=utf-8
+*.{html,htm,css} text eol=lf encoding=utf-8
+*.md text eol=lf encoding=utf-8

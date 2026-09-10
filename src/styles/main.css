@@ -1,0 +1,514 @@
+@import "tailwindcss";
+
+/* ─── Tema Coquette Baby Girl — edición premium ─── */
+@theme {
+  --color-cream: #fdf8f4;
+  --color-ivory: #fbf4ea;
+  --color-blush-50: #fbf0f3;
+  --color-blush-100: #f7e3e9;
+  --color-blush-200: #f0cfd9;
+  --color-blush-300: #e5b3c3;
+  --color-blush-400: #d690a8;
+  --color-blush-500: #c4718f;
+  --color-rose-deep: #a85573;
+  --color-burgundy: #7c3350;
+  --color-gold: #c9a96a;
+  --color-gold-soft: #e8dcc0;
+  --color-gold-foil: #b8935a;
+  --color-ink: #4a3540;
+  --color-ink-soft: #6b5260;
+
+  --font-display: "Cormorant Garamond", "Georgia", serif;
+  --font-script: "Dancing Script", "Segoe Script", cursive;
+  --font-body: "Quicksand", "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Textura de papel fina — grano sutil, mancha de luz suave */
+:root {
+  --paper-noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.025 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: var(--paper-noise);
+}
+
+::selection {
+  background: var(--color-blush-200);
+  color: var(--color-ink);
+}
+
+/* ─── Animaciones de entrada (reveal on scroll) ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 1s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ─── Flotación orgánica para lazos (deriva + leve respiración) ─── */
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg) scale(1.045);
+  }
+}
+
+.animate-float {
+  animation: float-soft 5.5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-soft 8.5s ease-in-out infinite;
+}
+
+/* ─── Botón estilo papelería ─── */
+.btn-stationery {
+  background: linear-gradient(180deg, #fffdf9 0%, #fbf3e8 100%);
+  border: 1px solid rgba(184, 147, 90, 0.65);
+  box-shadow:
+    inset 0 0 0 3px #fffdf9,
+    inset 0 0 0 4px rgba(184, 147, 90, 0.35),
+    0 4px 14px -4px rgba(124, 51, 80, 0.25);
+  color: var(--color-rose-deep);
+}
+
+.btn-stationery:hover {
+  box-shadow:
+    inset 0 0 0 3px #fffdf9,
+    inset 0 0 0 4px rgba(184, 147, 90, 0.45),
+    0 8px 22px -6px rgba(124, 51, 80, 0.35);
+}
+
+/* ─── Inputs de línea fina (formulario RSVP) ─── */
+.input-line {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(214, 144, 168, 0.65);
+  border-radius: 0;
+}
+
+.input-line:focus {
+  outline: none;
+  border-bottom-color: var(--color-rose-deep);
+  box-shadow: 0 1px 0 var(--color-rose-deep);
+}
+
+.input-line::placeholder {
+  color: rgba(138, 110, 124, 0.55);
+}
+
+/* ─── Indicador de música: barras equalizer ─── */
+.eq-bar {
+  width: 2.5px;
+  height: 4px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.eq-on .eq-bar {
+  animation: eq-bounce 1.05s ease-in-out infinite;
+}
+
+.eq-on .eq-bar:nth-child(2) {
+  animation-delay: 0.22s;
+}
+
+.eq-on .eq-bar:nth-child(3) {
+  animation-delay: 0.44s;
+}
+
+@keyframes eq-bounce {
+  0%,
+  100% {
+    height: 4px;
+  }
+  50% {
+    height: 13px;
+  }
+}
+
+/* ─── Indicador de scroll discreto ─── */
+.scroll-hint {
+  animation: scroll-hint-fade 5s ease forwards;
+}
+
+@keyframes scroll-hint-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  18% {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+  72% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SECUENCIA DE APERTURA — sobre premium
+   1) El lazo "se desata" (las lazadas se abren y se desvanecen)
+   2) La tarjeta se abre en 3D como una invitación real
+   3) Confeti sutil estalla desde el centro
+   4) El fondo se desvanece revelando el contenido
+   ══════════════════════════════════════════════════════════════ */
+
+@keyframes seal-untie-left {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-46px, -30px) rotate(-55deg) scale(0.35);
+    opacity: 0;
+  }
+}
+
+@keyframes seal-untie-right {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(46px, -30px) rotate(55deg) scale(0.35);
+    opacity: 0;
+  }
+}
+
+.animate-untie-left {
+  animation: seal-untie-left 0.62s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-untie-right {
+  animation: seal-untie-right 0.62s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes flap-open {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(-168deg);
+    opacity: 0;
+  }
+}
+
+.animate-flap-open {
+  animation: flap-open 0.85s cubic-bezier(0.6, 0.05, 0.3, 1) 0.28s forwards;
+  transform-origin: top center;
+}
+
+@keyframes letter-emerge {
+  0% {
+    opacity: 0;
+    transform: translateY(10%) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes letter-rise {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-58%) scale(1.06);
+  }
+}
+
+.animate-letter-out {
+  animation:
+    letter-emerge 0.35s ease-out 0.95s both,
+    letter-rise 0.95s cubic-bezier(0.22, 0.61, 0.36, 1) 1.3s forwards;
+}
+
+@keyframes scene-recede {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.animate-scene-recede {
+  animation: scene-recede 0.9s ease 1.9s forwards;
+  pointer-events: none;
+}
+
+@keyframes confetti-burst {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) rotate(var(--r)) scale(0.25);
+    opacity: 0;
+  }
+}
+
+.animate-confetti {
+  animation: confetti-burst 1.05s cubic-bezier(0.16, 0.84, 0.44, 1) forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes content-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-content-enter {
+  animation: content-enter 1.2s ease-out 0.5s both;
+  /* Estado final garantizado: si la animación se desactiva
+     (reduced-motion, HMR, etc.) el contenido sigue visible */
+  opacity: 1;
+}
+
+/* ─── Accesibilidad: respetar prefers-reduced-motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-float,
+  .animate-float-slow,
+  .animate-untie-left,
+  .animate-untie-right,
+  .animate-flap-open,
+  .animate-letter-out,
+  .animate-scene-recede,
+  .animate-confetti,
+  .animate-content-enter,
+  .scroll-hint,
+  .eq-on .eq-bar {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .animate-scene-recede {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ─── Detalles finos ─── */
+.photo-frame {
+  box-shadow:
+    0 2px 6px rgba(124, 51, 80, 0.1),
+    0 18px 40px rgba(124, 51, 80, 0.16);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(120deg, #b8935a 0%, #e3cf9a 45%, #b8935a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Carta física — superficie de papel marfil sobre el fondo */
+.paper-letter {
+  position: relative;
+  background: linear-gradient(180deg, #fffdf9 0%, #fbf4ea 60%, #f8efe3 100%);
+  border: 1px solid rgba(184, 147, 90, 0.5);
+  border-radius: 22px;
+  box-shadow:
+    inset 0 0 0 4px #fffdf9,
+    inset 0 0 0 5px rgba(184, 147, 90, 0.4),
+    0 30px 70px -24px rgba(124, 51, 80, 0.3),
+    0 10px 28px -8px rgba(124, 51, 80, 0.15);
+}
+
+.paper-letter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: var(--paper-noise);
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.paper-letter > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Sobre físico ─── */
+.envelope {
+  position: relative;
+  display: block;
+  width: min(86vw, 330px);
+  aspect-ratio: 1.45;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f4dbe4 0%, #eecfdd 55%, #e7c1d3 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -2px 6px rgba(124, 51, 80, 0.08),
+    0 18px 40px -12px rgba(124, 51, 80, 0.35),
+    0 6px 16px rgba(124, 51, 80, 0.15);
+  cursor: pointer;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: var(--paper-noise);
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Interior del sobre — visible cuando la carta sale */
+.envelope-inner {
+  position: absolute;
+  inset: 4px;
+  border-radius: 9px;
+  background: linear-gradient(180deg, #e2b4c9 0%, #d5a3bd 100%);
+  box-shadow: inset 0 3px 10px rgba(124, 51, 80, 0.25);
+  z-index: 5;
+}
+
+/* Pliegues laterales del sobre */
+.envelope-folds {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 6;
+  background:
+    linear-gradient(76deg, transparent 46%, rgba(124, 51, 80, 0.12) 47%, rgba(255, 255, 255, 0.5) 48%, transparent 49%),
+    linear-gradient(-76deg, transparent 46%, rgba(124, 51, 80, 0.12) 47%, rgba(255, 255, 255, 0.5) 48%, transparent 49%);
+}
+
+/* Solapa triangular superior */
+.envelope-flap {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  height: 54%;
+  clip-path: polygon(0 0, 100% 0, 50% 97%);
+  background: linear-gradient(180deg, #f2d6e1 0%, #e6bfd2 70%, #ddb3cb 100%);
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 8px 18px -6px rgba(124, 51, 80, 0.35);
+  transform-origin: top center;
+  z-index: 30;
+}
+
+.envelope-flap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--paper-noise);
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.envelope-flap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent 32%);
+  pointer-events: none;
+}
+
+/* Carta dentro del sobre */
+.envelope-letter {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 8%;
+  bottom: 8%;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fffdf9, #f9f1e6);
+  box-shadow:
+    0 -6px 20px -6px rgba(124, 51, 80, 0.22),
+    0 2px 6px rgba(124, 51, 80, 0.08);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0;
+}
+
+/* Divisor ornamental fino */
+.ornament-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold-foil) 50%,
+    transparent
+  );
+  height: 1px;
+}

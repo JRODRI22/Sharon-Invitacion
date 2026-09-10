@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+
+# Build
+dist/
+
+# Caché
+.vite/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.local
