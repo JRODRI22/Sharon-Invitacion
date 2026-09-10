@@ -9,7 +9,7 @@ function Unit({ value, label }: { value: number; label: string }) {
       <span className="font-display text-5xl font-semibold tabular-nums text-rose-deep sm:text-6xl">
         {String(value).padStart(2, "0")}
       </span>
-      <span className="mt-1 font-body text-[10px] font-semibold uppercase tracking-[0.3em] text-ink-soft">
+      <span className="mt-1 font-body text-xs font-semibold uppercase tracking-[0.25em] text-ink-soft">
         {label}
       </span>
     </div>

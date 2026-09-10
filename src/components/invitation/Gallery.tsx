@@ -44,6 +44,7 @@ export function Gallery() {
                   src={src}
                   alt={alt}
                   decoding="async"
+                  loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               ) : (
