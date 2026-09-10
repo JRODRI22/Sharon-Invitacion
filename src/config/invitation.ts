@@ -125,7 +125,7 @@ export const invitation = {
 
     tipsTitle: "Un consejito de la familia",
     tipsPool: "El lugar cuenta con piscina, así que ven preparados para mojarse si quieren 💦",
-    tipsChair: "Te recomendamos traer tu silla plegable, ya que hay poquitos asientos 🪑",
+    tipsChair: "Te recomendamos traer tu silla plegable, ya que hay poquitos asientos",
 
     rsvpTitle: "¿Nos acompañas?",
     rsvpSubtitle: "Confirma antes del domingo 27 de septiembre",
