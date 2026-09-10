@@ -107,7 +107,7 @@ export const invitation = {
 
     welcomeTitle: "Hace un añito…",
     welcomeMessage:
-      "Hace un añito llegó a nuestras vidas una pequeña princesa que llenó cada día de amor, sonrisas y momentos inolvidables.",
+      "Hace un añito llegó a nuestras vidas una pequeña princesa que llená cada día de amor, sonrisas y momentos inolvidables.",
 
     galleryTitle: "Nuestros recuerdos",
     gallerySubtitle: "Cada sonrisa suya es un tesoro que guardamos en el corazón",
@@ -123,8 +123,12 @@ export const invitation = {
     locationTitle: "¿Dónde será la celebración?",
     locationPending: "La ubicación será confirmada próximamente.",
 
+    tipsTitle: "Un consejito de la familia",
+    tipsPool: "El lugar cuenta con piscina, así que ven preparados para mojarse si quieren 💦",
+    tipsChair: "Te recomendamos traer tu silla plegable, ya que hay poquitos asientos 🪑",
+
     rsvpTitle: "¿Nos acompañas?",
-    rsvpSubtitle: "Nos encantaría saber que estarás ahí",
+    rsvpSubtitle: "Confirma antes del domingo 27 de septiembre",
     rsvpButton: "Confirmar asistencia",
     rsvpPending: "La confirmación estará disponible muy pronto 🎀",
 

@@ -10,6 +10,7 @@ import { Gallery } from "./components/invitation/Gallery";
 import { EventDetails } from "./components/invitation/EventDetails";
 import { Countdown } from "./components/invitation/Countdown";
 import { Location } from "./components/invitation/Location";
+import { Tips } from "./components/invitation/Tips";
 import { RSVP } from "./components/invitation/RSVP";
 import { Closing } from "./components/invitation/Closing";
 
@@ -59,6 +60,7 @@ export default function App() {
           <Countdown />
           <SectionDivider />
           <Location />
+          <Tips />
           <SectionDivider />
           <RSVP />
         </div>

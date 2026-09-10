@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const SCROLL_SPEED_PX_PER_FRAME = 0.35; // ≈ 21 px/s — ritmo suave, legible
+const SCROLL_SPEED_PX_PER_FRAME = 0.55; // ≈ 33 px/s — ritmo cómodo de lectura
 
 /**
  * Auto-scroll elegante:
