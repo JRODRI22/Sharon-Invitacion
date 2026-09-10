@@ -65,6 +65,9 @@ export const invitation = {
     whatsappNumber: "50689610814",
     /** Máximo de personas por confirmación */
     maxGuests: 6,
+    /** Fecha límite de confirmación en ISO "2026-12-31".
+     *  Después de esta fecha el formulario se cierra solo. "" = sin límite */
+    rsvpDeadline: "2026-09-27",
     /** URL del Web App de Apps Script (termina en /exec).
      *  Instrucciones: apps-script-rsvp.gs en la raíz del proyecto.
      *  "" = envío directo al Sheet deshabilitado (solo WhatsApp) */
@@ -124,13 +127,14 @@ export const invitation = {
     locationPending: "La ubicación será confirmada próximamente.",
 
     tipsTitle: "Un consejito de la familia",
-    tipsPool: "El lugar cuenta con piscina, así que ven preparados para mojarse si quieren 💦",
-    tipsChair: "Te recomendamos traer tu silla plegable, ya que hay poquitos asientos",
+    tipsPool: "El lugar cuenta con piscina, así que ven preparados para mojarse 💦",
+    tipsChair: "Te recomendamos traer tu silla plegable, ya que en el lugar hay poquitos asientos 🤗",
 
     rsvpTitle: "¿Nos acompañas?",
     rsvpSubtitle: "Confirma antes del domingo 27 de septiembre",
     rsvpButton: "Confirmar asistencia",
     rsvpPending: "La confirmación estará disponible muy pronto 🎀",
+    rsvpClosed: "La confirmación ya cerró 🎀 ¡Gracias a todos por el amor mostrado!",
 
     closingTitle: "Gracias por acompañarnos a celebrar",
     closingMessage: "Tu presencia hará que este día sea aún más especial.",

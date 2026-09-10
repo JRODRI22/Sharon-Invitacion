@@ -33,6 +33,11 @@ export function RSVP() {
   const whatsappReady = invitation.rsvp.whatsappNumber !== "";
   const sheetsReady = invitation.rsvp.sheetsEndpoint !== "";
 
+  /** Cierre automático tras la fecha límite (inclusive ese día) */
+  const rsvpClosed =
+    invitation.rsvp.rsvpDeadline !== "" &&
+    new Date() > new Date(`${invitation.rsvp.rsvpDeadline}T23:59:59`);
+
   const set = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((f) => ({ ...f, [key]: value }));
     setErrors((e) => ({ ...e, [key]: undefined }));
@@ -118,7 +123,7 @@ export function RSVP() {
       title={invitation.texts.rsvpTitle}
       subtitle={invitation.texts.rsvpSubtitle}
     >
-      {whatsappReady ? (
+      {whatsappReady && !rsvpClosed ? (
         <form
           onSubmit={handleSubmit}
           noValidate
@@ -270,7 +275,9 @@ export function RSVP() {
         </form>
       ) : (
         <p className="font-display text-lg italic text-ink-soft">
-          {invitation.texts.rsvpPending}
+          {rsvpClosed
+            ? invitation.texts.rsvpClosed
+            : invitation.texts.rsvpPending}
         </p>
       )}
     </Section>
