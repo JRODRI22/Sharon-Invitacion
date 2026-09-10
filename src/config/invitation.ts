@@ -83,13 +83,17 @@ export const invitation = {
   /**
    * Fotografías de Sharon. Archivos en public/images/.
    * La galería usa un ritmo editorial: la 1ª foto es la protagonista.
+   * BASE_URL respeta el subpath del deploy (GitHub Pages: /Sharon-Invitacion/).
    */
   photos: [
-    { src: "/images/sharon-hero.jpg", alt: "Sharon" },
-    { src: "/images/sharon-02.jpg", alt: "Sharon" },
-    { src: "/images/sharon-03.jpg", alt: "Sharon" },
-    { src: "/images/sharon-04.jpg", alt: "Sharon" },
-    { src: "/images/sharon-05.jpg", alt: "Sharon con su hermanita" },
+    { src: `${import.meta.env.BASE_URL}images/sharon-hero.jpg`, alt: "Sharon" },
+    { src: `${import.meta.env.BASE_URL}images/sharon-02.jpg`, alt: "Sharon" },
+    { src: `${import.meta.env.BASE_URL}images/sharon-03.jpg`, alt: "Sharon" },
+    { src: `${import.meta.env.BASE_URL}images/sharon-04.jpg`, alt: "Sharon" },
+    {
+      src: `${import.meta.env.BASE_URL}images/sharon-05.jpg`,
+      alt: "Sharon con su hermanita",
+    },
   ] as Photo[],
 
   /** Todos los textos de la invitación — editables */
