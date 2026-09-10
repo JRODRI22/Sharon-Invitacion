@@ -126,7 +126,7 @@ export const invitation = {
     locationTitle: "¿Dónde será la celebración?",
     locationPending: "La ubicación será confirmada próximamente.",
 
-    tipsTitle: "Un consejito de la familia",
+    tipsTitle: "Un consejito",
     tipsPool: "El lugar cuenta con piscina, así que ven preparados para mojarse 💦",
     tipsChair: "Te recomendamos traer tu silla plegable, ya que en el lugar hay poquitos asientos 🤗",
 
